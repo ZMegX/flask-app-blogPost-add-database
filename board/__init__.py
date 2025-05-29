@@ -1,8 +1,11 @@
 import os
-from dotenv import load_dotenv
-from config import config_by_name
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from config import config_by_name
 from board import pages, posts, database
+from dotenv import load_dotenv
+
 
 load_dotenv()
 
