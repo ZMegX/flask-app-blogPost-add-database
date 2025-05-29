@@ -1,10 +1,20 @@
 import os
 from dotenv import load_dotenv
-
+from config import config_by_name
 from flask import Flask
 from board import pages, posts, database
 
 load_dotenv()
+
+env = os.getenv('FLASK_ENV', 'development')
+app = Flask(__name__)
+app.config.from_object(config_by_name[env])
+
+# Initialize DB
+from models import db  # Make sure db is defined in models.py
+db.init_app(app)
+
+migrate = Migrate(app, db)
 
 def create_app():
     app = Flask(__name__)
