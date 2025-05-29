@@ -2,3 +2,4 @@ Flask
 python-dotenv
 psycopg2-binary
 Flask-SQLAlchemy
+gunicorn==23.0.0
