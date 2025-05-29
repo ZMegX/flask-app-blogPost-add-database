@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import config_by_name
 from board import pages, posts, database, models
-from models import db
+from .models import db
 from dotenv import load_dotenv
 
 
