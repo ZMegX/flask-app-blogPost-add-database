@@ -1,33 +1,30 @@
 import os
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from config import config_by_name
-from board import pages, posts, database, models
-from .models import db
 from dotenv import load_dotenv
-
+from config import config_by_name
+from .models import db 
+from . import pages, posts  # import your blueprints
 
 load_dotenv()
 
-env = os.getenv('FLASK_ENV', 'development')
-app = Flask(__name__)
-app.config.from_object(config_by_name[env])
-
-# Initialize DB
-from models import db  # Make sure db is defined in models.py
-db.init_app(app)
-
-migrate = Migrate(app, db)
-
 def create_app():
     app = Flask(__name__)
-    app.config.from_prefixed_env()
+    
+    # Set configuration based on FLASK_ENV
+    env = os.getenv('FLASK_ENV', 'development')
+    app.config.from_object(config_by_name[env])
 
-    database.init_app(app)
+    # Initialize extensions
+    db.init_app(app)
+    Migrate(app, db)
 
+    # Register blueprints
     app.register_blueprint(pages.bp)
     app.register_blueprint(posts.bp)
-    print(f"Current Environment: {os.getenv('ENVIRONMENT')}")
-    print(f"Using Database: {app.config.get('DATABASE')}")
+
+    # Debug output
+    print(f"Running in environment: {env}")
+    print(f"DB URL: {app.config.get('SQLALCHEMY_DATABASE_URI')}")
+
     return app
