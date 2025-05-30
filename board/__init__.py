@@ -20,9 +20,10 @@ def create_app():
     app.config.from_object(config_by_name[env])
 
     # Initialize extensions
-    db.init_app(app)
-    db.create_all()
-    
+    with app.app_context():
+        db.init_app(app)
+        db.create_all()
+
     from . import models  # import Post ORM
 
     # Register blueprints
