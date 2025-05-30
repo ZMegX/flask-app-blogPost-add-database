@@ -21,8 +21,8 @@ def create_app():
 
     # Initialize extensions
     db.init_app(app)
-    Migrate(app, db)
-
+    db.create_all()
+    
     from . import models  # import Post ORM
 
     # Register blueprints
