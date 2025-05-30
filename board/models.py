@@ -6,15 +6,15 @@ db = SQLAlchemy()
 
 # will add user later and create the relationship
 
-class User(db.Model):
-    __tablename__ = 'users'
+# class User(db.Model):
+#     __tablename__ = 'users'
 
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
+#     id = db.Column(db.Integer, primary_key=True)
+#     username = db.Column(db.String(80), unique=True, nullable=False)
+#     email = db.Column(db.String(120), unique=True, nullable=False)
 
-    # Relationship: One user can have many recipes
-    recipes = db.relationship('post', backref='author', lazy=True)
+    # relationship: One user can have many recipes
+    # recipes = db.relationship('post', backref='author', lazy=True)
 
 class Post(db.Model):
     __tablename__ = 'post'
@@ -28,7 +28,7 @@ class Post(db.Model):
         return f"<Post {self.id} by {self.author}>"
 
     # foreign key: link to user who posted it
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    # user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     # one recipe can have many ingredients
     # ingredients = db.relationship('Ingredient', backref='recipe', lazy=True)
