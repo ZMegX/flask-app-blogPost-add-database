@@ -4,11 +4,7 @@ from dotenv import load_dotenv
 from config import config_by_name
 from .models import db 
 from . import pages, posts  # import your blueprints
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 
-db = SQLAlchemy()
-migrate = Migrate()
 
 load_dotenv()
 
