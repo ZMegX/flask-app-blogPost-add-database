@@ -11,10 +11,10 @@ db = SQLAlchemy()
 
 #     id = db.Column(db.Integer, primary_key=True)
 #     username = db.Column(db.String(80), unique=True, nullable=False)
-#     email = db.Column(db.String(120), unique=True, nullable=False)
+#     # email = db.Column(db.String(120), unique=True, nullable=False)
 
-    # relationship: One user can have many recipes
-    # recipes = db.relationship('post', backref='author', lazy=True)
+#     # relationship: One user can have many recipes
+#     recipes = db.relationship('post', backref='author', lazy=True)
 
 class Post(db.Model):
     __tablename__ = 'post'
