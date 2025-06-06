@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>Edit Post</h2>
+{% endblock header %}
+
+{% block content %}
+  <form method="POST">
+    <div>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" cols="50" required>{{ post.message }}</textarea>
+    </div>
+    <div style="margin-top: 1em;">
+      <button type="submit">Save Changes</button>
+      <a href="{{ url_for('posts.posts') }}">Cancel</a>
+    </div>
+  </form>
+{% endblock content %}
