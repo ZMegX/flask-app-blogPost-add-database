@@ -101,3 +101,16 @@ form {
   transform: translateX(0);
   
 }
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+  
+  }
+
+img{
+  width: 450px;
+  height: auto;
+}
