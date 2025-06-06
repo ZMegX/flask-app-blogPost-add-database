@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block header %}
+  <h2>{% block title %}404, Page not found{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+<section>
+  <h1>OOPS, Page not found</h1>
+</section>
+<div class="row gx-5 align-items-center justify-content-around">
+  <div class="col align-self-center p-3">
+      <div class="container text-center">
+            <span class="animate-on-scroll">
+                <img src="../../static/images/404.png" alt="404, are you lost?">
+            </span>
+      </div>
+      <div class="col align-self-center p-5">
+        <div class="container text-center">
+          <span class="animate-on-scroll">
+              <a href="{{ url_for('pages.home') }}" class="btn btn-primary">Home</a>
+            </span>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}

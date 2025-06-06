@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block header %}
+  <h2>{% block title %}Try again later{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+<section>
+  <h1>Error 500, Looks like the connection is broken, try again later</h1>
+</section>
+<div class="row gx-5 align-items-center justify-content-around">
+  <div class="col align-self-center p-3">
+      <div class="container text-center">
+            <span class="animate-on-scroll">
+                <img src="../../static/images/error500.webp" alt="500, Looks like the connection is broken, try again later">
+            </span>
+      </div>
+      <div class="col align-self-center p-5">
+        <div class="container text-center">
+          <span class="animate-on-scroll">
+              <a href="{{ url_for('pages.home') }}" class="btn btn-primary">Home</a>
+            </span>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}
