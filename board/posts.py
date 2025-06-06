@@ -28,3 +28,21 @@ def create():
 def posts():
     posts = Post.query.order_by(Post.created.desc()).all()
     return render_template("posts/posts.html", posts=posts)
+
+@bp.route("/edit/<int:post_id>", methods=["GET", "POST"])
+def edit(post_id):
+    post = Post.query.get_or_404(post_id)
+    if request.method == "POST":
+        new_message = request.form.get("message")
+        if new_message:
+            post.message = new_message
+            db.session.commit()
+            return redirect(url_for("posts.posts"))
+    return render_template("posts/edit.html", post=post)
+
+@bp.route("/delete/<int:post_id>", methods=["POST"])
+def delete(post_id):
+    post = Post.query.get_or_404(post_id)
+    db.session.delete(post)
+    db.session.commit()
+    return redirect(url_for("posts.posts"))
