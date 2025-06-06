@@ -23,7 +23,8 @@
     {% for post in posts %}
     <article>
       <p class="message">{{ post["message"] }}<p>
-      <aside>Posted by {{ post["author"] }} on {{ post["created"].strftime("%b %d, %Y at %I:%M%p") }}
+      <!-- display the actual field (the username) of the user, not the object itself. -->
+      <aside>Posted by {{ post.author.username }} on {{ post["created"].strftime("%b %d, %Y at %I:%M%p") }}
       <a href="{{ url_for('posts.edit', post_id=post.id) }}">Edit</a>
       </aside>
     </article>
