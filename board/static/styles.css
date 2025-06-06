@@ -87,3 +87,17 @@ form {
   margin: 0;
   padding: 0;
 }
+  /* animation */
+.animate-on-scroll{
+  opacity: 0;
+  transform: translateX(-300px);
+  transition: all 0.7s ease-out;
+  transition-delay: 0.4s;
+
+}
+
+.animate{
+  opacity: 1;
+  transform: translateX(0);
+  
+}
