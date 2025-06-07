@@ -1,5 +1,4 @@
 from datetime import datetime
-#from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -27,9 +26,3 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"<Post {self.id} by {self.user_id}>"
-
-    # foreign key: link to user who posted it
-    # user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-
-    # one recipe can have many ingredients
-    # ingredients = db.relationship('Ingredient', backref='recipe', lazy=True)
