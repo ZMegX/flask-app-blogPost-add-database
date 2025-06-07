@@ -20,7 +20,7 @@ def create_app():
         db.init_app(app)
         db.create_all()
 
-    from . import models  # import Post ORM
+    from . import models  # import Post, User ORM
 
     # Register blueprints
     app.register_blueprint(pages.bp)
