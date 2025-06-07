@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, request, url_for
+from flask import Blueprint, render_template, redirect, request, url_for, flash
 from board.models import Post, db, User  # import your model and db session
 
 bp = Blueprint("posts", __name__)
@@ -45,4 +45,5 @@ def delete(post_id):
     post = Post.query.get_or_404(post_id)
     db.session.delete(post)
     db.session.commit()
+    flash('Post deleted!')
     return redirect(url_for("posts.posts"))
