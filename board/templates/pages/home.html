@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h2>{% block title %}Welcome to Foodissimo{% endblock title %}</h2>
+  {% block title %}
+      <img src="../../static/images/Welcome-to-Foodissimo-07-06-2025.png" class="img-fluid" alt="Our Journey">
+  {% endblock title %}
 {% endblock header %}
 
 {% block content %}
@@ -33,7 +35,7 @@
         <div class="row align-items-center gx-5">
           <div class="col">
             <span class="animate-on-scroll">
-              Where Flavor Meets Feedback
+             <img src="../../static/images/Where-Flavor-Meets-Feedback-07-06-2025.png" alt="Where Flavors meets feedback">
             </span>
           </div>
         </div>
@@ -49,30 +51,11 @@
                Each month, we shine the spotlight on a different location, giving local
                restaurants the opportunity to showcase their dishes, connect with diners, 
                and grow through real feedback.
-          </div>
-        </div>
-      </div>
-      <div class="container text-center">
-        <div class="row align-items-center gx-5">
-          <div class="col">
-            <span class="animate-on-scroll">
-              <img src="./images/Let-s-dive-in-17-02-2025.png" id="dive-in-img-main" class="img-fluid" alt="let's dive in">
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="container text-center">
-        <div class="row align-items-center gx-5">
-          <div class="col-sm-12 col-md-4">
-            <span class="animate-on-scroll">
-              Our mission is simple: to create a space where restaurants and customers collaborate.
-               Diners can share their honest experiences and suggestions, while restaurants can listen, 
-               improve, and build stronger relationships with their community. 
-               With Foodissimo, great food comes with great conversation.
-            </span>
-          </div>
-          <div class="col-sm-12 col-md-8 p-3">
-            <img src="https://images.pexels.com/photos/1546039/pexels-photo-1546039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="img-fluid" alt="The statue of Nikaia in the middle of the Theater looking over the sea.">
+                 <span class="animate-on-scroll">
+                    <a href="{{ url_for('posts.posts') }}">
+                      <img src="../../static/images/Current-Month-s-Spotlight.png" class="img-fluid" alt="Our Journey">
+                    </a>
+                  </span>
           </div>
         </div>
       </div>
